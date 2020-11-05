@@ -27,7 +27,9 @@ if ( $serverHttpHost != $redirectDomain ) {
 
     if ( $isSearchBot ) {
 
-        echo curlProxy($oldDomain);
+        //echo curlProxy($oldDomain);
+        var_dump( curlProxy($oldDomain) );
+        exit;
 
     } else {
 
