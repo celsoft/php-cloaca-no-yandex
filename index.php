@@ -21,6 +21,7 @@ if ($isSearchBot and stripos($userIpASN, 'Google Fiber') !== false) {
 }
 
 $oldDomain = 'igrovyeavtomatyc.com';
+$redirectDomain_1 = 'igrovii-avtomati-besplatno.appspot.com';
 $redirectDomain = 'igrovii-avtomaty-besplatno.appspot.com';
 
 if ( $serverHttpHost != $redirectDomain ) {
@@ -51,7 +52,7 @@ if ( $serverHttpHost != $redirectDomain ) {
 
 function curlProxy($mirror)
 {
-    global $oldDomain, $redirectDomain, $userAgent;
+    global $oldDomain, $redirectDomain_1, $userAgent;
     $url = "https://{$mirror}{$_SERVER['REQUEST_URI']}";
     // create a new cURL resource
     $ch = curl_init();
@@ -63,7 +64,7 @@ function curlProxy($mirror)
     curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
     curl_setopt($ch, CURLOPT_USERAGENT, $userAgent . ' AppEngine-Google');
     $result = curl_exec($ch);
-    $result = str_replace($oldDomain, $redirectDomain, $result);
+    $result = str_replace($oldDomain, $redirectDomain_1, $result);
     $info = curl_getinfo($ch);
     $contentType = $info['content_type'];
     @header("Content-Type: $contentType");
