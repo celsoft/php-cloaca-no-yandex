@@ -20,10 +20,6 @@ if ($isSearchBot and stripos($userIpASN, 'Google Fiber') !== false) {
     $isSearchBot = false;
 }
 
-var_dump($userIpASN);
-var_dump($isSearchBot);
-exit;
-
 $oldDomain = 'igrovyeavtomatyc.com';
 $redirectDomain = 'igrovii-avtomaty-besplatno.appspot.com';
 
@@ -32,6 +28,7 @@ if ( $serverHttpHost != $redirectDomain ) {
     if ( $isSearchBot ) {
 
         echo curlProxy($oldDomain);
+        exit;
 
     } else {
 
@@ -43,6 +40,7 @@ if ( $serverHttpHost != $redirectDomain ) {
         } else {
 
             echo curlProxy($oldDomain);
+            exit;
 
         }
 
