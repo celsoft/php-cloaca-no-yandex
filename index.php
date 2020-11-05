@@ -31,7 +31,10 @@ if ( $serverHttpHost != $redirectDomain ) {
 
     } else {
 
-        if ( !$detect->isMobile() ) {
+        header('Location: https://' . $redirectDomain . $serverRequestUri, true, 301);
+        exit;
+
+        /*if ( !$detect->isMobile() ) {
 
             header('Location: https://' . $redirectDomain . $serverRequestUri, true, 301);
             exit;
@@ -40,7 +43,7 @@ if ( $serverHttpHost != $redirectDomain ) {
 
             echo curlProxy($oldDomain);
 
-        }
+        }*/
 
     }
 
